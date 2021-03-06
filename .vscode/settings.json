@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 2,
+  "editor.codeLens": false,
+  "codemetrics.basics.CodeLensEnabled": false,
+  "codemetrics.basics.EnabledForHTML": false,
+  "codemetrics.basics.EnabledForJSX": false,
+  "codemetrics.basics.EnabledForTS": false,
+  "codemetrics.basics.EnabledForVue": false,
+  "codemetrics.basics.EnabledForTSX": false
+}
