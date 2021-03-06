@@ -4,7 +4,12 @@ import styled from '@emotion/styled';
 import Link from './Link';
 import Hamburger from './Hamburger';
 
-import { colours, sizes } from '../helpers/styles';
+import {
+  colours,
+  sizes,
+  media,
+  breakpoints,
+} from '../helpers/styles';
 
 interface SHamburgerContainerProps {
   backgroundColour: colours,
@@ -17,28 +22,57 @@ const SHamburgerContainer = styled.div<SHamburgerContainerProps>`
   align-items: center;
   justify-content: flex-end;
   padding-right: ${sizes.md};
+
+  ${media(breakpoints.md)} {
+    display: none;
+  }
 `;
 
 interface SNavProps {
   open: boolean,
 }
 
-const SNav = styled.div<SNavProps>`
-  position: relative;
+const SNav = styled.nav<SNavProps>`
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${sizes.md} 0;
+  padding: ${sizes.md};
   height: calc(100vh - 4rem);
+  width: 100vw;
   overflow: auto;
+  top: 4rem;
   left: ${({ open }) => (open ? 0 : '-100%')};
   transition: left 700ms;
   background-color: ${colours.black};
+
+  ${media(breakpoints.md)} {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: auto;
+    padding: ${sizes.xxl};
+    transition: none;
+
+    & > a:first-of-type {
+      margin-top: 0;
+    }
+  }
 `;
 
 const SLink = styled(Link)`
   margin: ${sizes.md} 0;
   text-transform: uppercase;
+`;
+
+const SdivNavContainer = styled.div`
+  position: sticky;
+  top: 0;
+
+  ${media(breakpoints.md)} {
+    position: relative;
+  }
 `;
 
 interface NavLinksProps {
@@ -56,21 +90,24 @@ const NavLinks = ({ open }: NavLinksProps) => (
   </SNav>
 );
 
-const Nav = () => {
-  const [open, setOpen] = React.useState(false);
+interface NavProps {
+  onToggle(): void;
+  open: boolean;
+}
 
+const Nav = ({ onToggle, open }: NavProps) => {
   const handleHamburgerClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     event.preventDefault();
-    setOpen(!open);
+    onToggle();
   };
 
   return (
-    <>
+    <SdivNavContainer>
       <SHamburgerContainer backgroundColour={colours.white}>
         <Hamburger open={open} onClick={handleHamburgerClick} colour={colours.black} label="Toggle navigation" />
       </SHamburgerContainer>
       <NavLinks open={open} />
-    </>
+    </SdivNavContainer>
   );
 };
 

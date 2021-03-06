@@ -4,11 +4,7 @@ import { css } from '@emotion/react';
 
 import { sizes, colours } from '../helpers/styles';
 
-const SdivButton = styled.div`
-  position: relative;
-  height: ${sizes.mobileButton};
-  width: ${sizes.mobileButton};
-
+const SdivButtonClosed = css`
   & > div:nth-of-type(1) {
     top: 0;
     transform: translateY(0);
@@ -48,21 +44,29 @@ const SdivButtonOpen = css`
   }
 `;
 
+interface SdivButtonProps {
+  open: boolean,
+}
+
+const SdivButton = styled.div<SdivButtonProps>`
+  position: relative;
+  height: ${sizes.mobileButton};
+  width: ${sizes.mobileButton};
+
+  ${({ open }) => (open ? SdivButtonOpen : SdivButtonClosed)}
+`;
+
 interface SdivBurgerBarProps {
   colour: colours,
 }
 
-const barStyle = (colour: colours) => css`
+const SdivBurgerBar = styled.div<SdivBurgerBarProps>`
   position: absolute;
-  background-color: ${colour};
+  background-color: ${({ colour }) => colour};
   height: 18%;
   border-radius: 3px;
   width: 100%;
   display: block;
-`;
-
-const SdivBurgerBar = styled.div<SdivBurgerBarProps>`
-  ${({ colour }) => barStyle(colour)};
 `;
 
 interface HamburgerProps {
@@ -80,7 +84,7 @@ const Hamburger = ({
   label,
   className,
 }: HamburgerProps) => (
-  <SdivButton className={className} css={open ? [SdivButtonOpen] : null} onClick={onClick} tabIndex={0} role="button" aria-pressed={open} aria-expanded={open} aria-label={label}>
+  <SdivButton className={className} open={open} onClick={onClick} tabIndex={0} role="button" aria-pressed={open} aria-expanded={open} aria-label={label}>
     <SdivBurgerBar colour={colour} />
     <SdivBurgerBar colour={colour} />
     <SdivBurgerBar colour={colour} />
