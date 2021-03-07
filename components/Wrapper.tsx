@@ -30,10 +30,14 @@ const SWrapper = styled.div<SWrapperProps>`
 `;
 
 const Smain = styled.main`
-  padding: ${sizes.md};
+  padding: ${sizes.xxl} ${sizes.md};
 
   ${media(breakpoints.md)} {
-    padding: ${sizes.xxl}
+    padding: ${sizes.xxl};
+    flex-grow: 1;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   };
 `;
 

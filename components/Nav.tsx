@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import Link from './Link';
 import Hamburger from './Hamburger';
+import Grid from './Grid';
 
 import {
   colours,
@@ -37,6 +38,7 @@ const SNav = styled.nav<SNavProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: ${sizes.md};
   height: calc(100vh - 4rem);
   width: 100vw;
@@ -50,7 +52,7 @@ const SNav = styled.nav<SNavProps>`
     position: relative;
     top: 0;
     left: 0;
-    height: auto;
+    height: 100vh;
     width: auto;
     padding: ${sizes.xxl};
     transition: none;
@@ -61,6 +63,12 @@ const SNav = styled.nav<SNavProps>`
   }
 `;
 
+const SdivNavLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const SLink = styled(Link)`
   margin: ${sizes.md} 0;
   text-transform: uppercase;
@@ -69,11 +77,29 @@ const SLink = styled(Link)`
 const SdivNavContainer = styled.div`
   position: sticky;
   top: 0;
+`;
 
-  ${media(breakpoints.md)} {
-    position: relative;
+const SGridSocials = styled(Grid)`
+  a {
+    max-width: 2.5rem;
   }
 `;
+
+interface SocialIconProps {
+  type: string;
+  image: string;
+  href: string;
+}
+
+const SocialIcon = ({
+  type,
+  image,
+  href,
+}: SocialIconProps) => (
+  <a href={href}>
+    <img src={image} alt={`${type} icon`} />
+  </a>
+);
 
 interface NavLinksProps {
   open: boolean
@@ -81,12 +107,21 @@ interface NavLinksProps {
 
 const NavLinks = ({ open }: NavLinksProps) => (
   <SNav open={open}>
-    <SLink href="/" title="Home" />
-    <SLink href="/me" title="Me" />
-    <SLink href="/music" title="Music" />
-    <SLink href="/media" title="Media" />
-    <SLink href="/services" title="Services" />
-    <SLink href="/connect" title="Connect" />
+    <SdivNavLinks>
+      <SLink href="/" title="Home" />
+      <SLink href="/me" title="Me" />
+      <SLink href="/music" title="Music" />
+      <SLink href="/media" title="Media" />
+      <SLink href="/services" title="Services" />
+      <SLink href="/connect" title="Connect" />
+    </SdivNavLinks>
+    <SGridSocials gap={sizes.none} columns={5} mdColumns={3}>
+      <SocialIcon href="#" image="/images/twitter.svg" type="Twitter" />
+      <SocialIcon href="#" image="/images/twitter.svg" type="Twitter" />
+      <SocialIcon href="#" image="/images/twitter.svg" type="Twitter" />
+      <SocialIcon href="#" image="/images/twitter.svg" type="Twitter" />
+      <SocialIcon href="#" image="/images/twitter.svg" type="Twitter" />
+    </SGridSocials>
   </SNav>
 );
 

@@ -5,6 +5,7 @@ const ShoneTitle = styled.h1`
   font-family: 'stoner', cursive;
   font-size: 7rem;
   font-weight: 400;
+  line-height: 1;
 `;
 
 interface TitleProps {

@@ -19,6 +19,7 @@ interface SdivGridProps {
   lgColumns: number;
   xlColumns: number;
   rows?: number;
+  rowGap?: sizes;
   gap: sizes;
 }
 
@@ -27,6 +28,7 @@ const SdivGrid = styled.div<SdivGridProps>`
   grid-template-columns: ${({ columns }) => getAutoString(columns)};
   grid-template-rows: ${({ rows }) => (rows ? getAutoString(rows) : null)};
   grid-gap: ${({ gap }) => gap};
+  row-gap: ${({ rowGap }) => (rowGap || null)};
 
   ${media(breakpoints.sm)} {
     grid-template-columns: ${({ smColumns }) => getAutoString(smColumns)};
@@ -53,6 +55,7 @@ interface GridProps {
   xlColumns?: number;
   rows?: number;
   gap?: sizes;
+  rowGap?: sizes;
   className?: string;
 }
 
@@ -64,10 +67,11 @@ const Grid:React.FunctionComponent<GridProps> = ({
   lgColumns = mdColumns,
   xlColumns = lgColumns,
   rows,
+  rowGap,
   gap = sizes.sm,
   className,
 }) => (
-  <SdivGrid 
+  <SdivGrid
     className={className}
     columns={columns}
     smColumns={smColumns}
@@ -76,6 +80,7 @@ const Grid:React.FunctionComponent<GridProps> = ({
     xlColumns={xlColumns}
     rows={rows}
     gap={gap}
+    rowGap={rowGap}
   >
     {children}
   </SdivGrid>

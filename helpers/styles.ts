@@ -4,6 +4,7 @@ export enum colours {
 }
 
 export enum sizes {
+  none = '0',
   sm = '0.5rem',
   md = '1rem',
   lg = '1.5rem',

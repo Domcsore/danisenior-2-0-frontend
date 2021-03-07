@@ -21,7 +21,7 @@ const SANav = styled.a<AProps>`
   ${({ active, colour }) => (active ? SDefaultActive({ colour }) : null)};
 `;
 
-interface LinkProps extends NextLinkProps {
+export interface LinkProps extends NextLinkProps {
   title: string,
   colour?: colours,
   className?: string,
