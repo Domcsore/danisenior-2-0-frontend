@@ -13,7 +13,7 @@ const SimgCover = styled.img`
 
 const SthMusicTableHeading = styled.th`
   text-align: left;
-  padding: ${sizes.sm} ${sizes.sm} ${sizes.sm} 0;
+  padding: 0 ${sizes.sm} ${sizes.sm} 0;
 
   &:last-of-type {
     padding-right: 0;
@@ -49,20 +49,24 @@ interface MusicTableProps {
 
 const MusicTable = ({ songs }: MusicTableProps) => (
   <table>
-    <tr>
-      <SthMusicTableHeading>Cover</SthMusicTableHeading>
-      <SthMusicTableHeading>Artist</SthMusicTableHeading>
-      <SthMusicTableHeading>Record</SthMusicTableHeading>
-      <SthMusicTableHeading>Credits</SthMusicTableHeading>
-    </tr>
-    {songs.map((song) => (
+    <thead>
       <tr>
-        <StdMusicTableEntry><SimgCover src={song.image} alt={song.record} /></StdMusicTableEntry>
-        <StdMusicTableEntry>{song.artist}</StdMusicTableEntry>
-        <StdMusicTableEntry>{song.record}</StdMusicTableEntry>
-        <StdMusicTableEntry>{song.credits}</StdMusicTableEntry>
+        <SthMusicTableHeading>Cover</SthMusicTableHeading>
+        <SthMusicTableHeading>Artist</SthMusicTableHeading>
+        <SthMusicTableHeading>Record</SthMusicTableHeading>
+        <SthMusicTableHeading>Credits</SthMusicTableHeading>
       </tr>
-    ))}
+    </thead>
+    <tbody>
+      {songs.map((song) => (
+        <tr key={song.artist + song.record}>
+          <StdMusicTableEntry><SimgCover src={song.image} alt={song.record} /></StdMusicTableEntry>
+          <StdMusicTableEntry>{song.artist}</StdMusicTableEntry>
+          <StdMusicTableEntry>{song.record}</StdMusicTableEntry>
+          <StdMusicTableEntry>{song.credits}</StdMusicTableEntry>
+        </tr>
+      ))}
+    </tbody>
   </table>
 );
 
