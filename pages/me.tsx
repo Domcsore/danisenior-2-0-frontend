@@ -8,7 +8,7 @@ import Title from '../components/Title';
 import Grid from '../components/Grid';
 
 const Me = () => (
-  <Wrapper>
+  <Wrapper title="Me">
     <Grid gap={sizes.xl}>
       <Title>Me</Title>
       <div>

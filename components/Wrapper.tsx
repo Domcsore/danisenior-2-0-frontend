@@ -41,14 +41,19 @@ const Smain = styled.main`
   };
 `;
 
-const HtmlHead = () => (
+interface HtmlHeadProps {
+  title: string;
+}
+
+const HtmlHead = ({ title }: HtmlHeadProps) => (
   <Head>
+    <title>{`Dani Senior - ${title}`}</title>
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
     <link rel="stylesheet" href="/core.css" />
   </Head>
 );
 
-const Wrapper:React.FC = ({ children }) => {
+const Wrapper:React.FC<HtmlHeadProps> = ({ children, title }) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   const onNavToggle = () => {
@@ -57,7 +62,7 @@ const Wrapper:React.FC = ({ children }) => {
 
   return (
     <SWrapper navOpen={navOpen}>
-      <HtmlHead />
+      <HtmlHead title={title} />
       <Nav onToggle={onNavToggle} open={navOpen} />
       <Smain>
         {children}

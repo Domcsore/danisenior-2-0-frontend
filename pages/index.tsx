@@ -37,7 +37,7 @@ const SHeadingProfession = styled(Heading)`
 `;
 
 const Home = () => (
-  <Wrapper>
+  <Wrapper title="Home">
     <Grid mdColumns={2} gap={sizes.xxl}>
       <STitleHome>Dani Senior</STitleHome>
       <SdivCTA>
