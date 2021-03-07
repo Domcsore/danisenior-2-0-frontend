@@ -1,14 +1,14 @@
-import React from 'react';
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { useRouter } from 'next/router';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import React from "react";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import { useRouter } from "next/router";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
-import { colours } from '../helpers/styles';
+import { colours } from "../helpers/styles";
 
 interface AProps {
-  colour: colours,
-  active?: boolean,
+  colour: colours;
+  active?: boolean;
 }
 
 const SDefaultActive = (props: AProps) => css`
@@ -22,9 +22,9 @@ const SANav = styled.a<AProps>`
 `;
 
 export interface LinkProps extends NextLinkProps {
-  title: string,
-  colour?: colours,
-  className?: string,
+  title: string;
+  colour?: colours;
+  className?: string;
 }
 
 const Link = (props: LinkProps) => {
@@ -56,7 +56,14 @@ const Link = (props: LinkProps) => {
       locale={locale}
       passHref
     >
-      <SANav href="replace" colour={colour} active={active} className={className}>{title}</SANav>
+      <SANav
+        href="replace"
+        colour={colour}
+        active={active}
+        className={className}
+      >
+        {title}
+      </SANav>
     </NextLink>
   );
 };

@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
-import { sizes } from '../helpers/styles';
+import { sizes } from "../helpers/styles";
 
-import Wrapper from '../components/Wrapper';
-import Title from '../components/Title';
-import Grid from '../components/Grid';
+import Wrapper from "../components/Wrapper";
+import Title from "../components/Title";
+import Grid from "../components/Grid";
 
 const SimgCover = styled.img`
   max-width: 4rem;
@@ -29,12 +29,14 @@ const StdMusicTableEntry = styled.td`
   }
 `;
 
-const exampleSongs: Song[] = [{
-  image: '/images/one.jpg',
-  artist: 'Dani',
-  record: 'This is my long song name that will hopefully wrap',
-  credits: 'Co-write',
-}];
+const exampleSongs: Song[] = [
+  {
+    image: "/images/one.jpg",
+    artist: "Dani",
+    record: "This is my long song name that will hopefully wrap",
+    credits: "Co-write",
+  },
+];
 
 export interface Song {
   image: string;
@@ -60,7 +62,9 @@ const MusicTable = ({ songs }: MusicTableProps) => (
     <tbody>
       {songs.map((song) => (
         <tr key={song.artist + song.record}>
-          <StdMusicTableEntry><SimgCover src={song.image} alt={song.record} /></StdMusicTableEntry>
+          <StdMusicTableEntry>
+            <SimgCover src={song.image} alt={song.record} />
+          </StdMusicTableEntry>
           <StdMusicTableEntry>{song.artist}</StdMusicTableEntry>
           <StdMusicTableEntry>{song.record}</StdMusicTableEntry>
           <StdMusicTableEntry>{song.credits}</StdMusicTableEntry>

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
-import { sizes, colours } from '../helpers/styles';
+import { sizes, colours } from "../helpers/styles";
 
 const SdivButtonClosed = css`
   & > div:nth-of-type(1) {
@@ -45,7 +45,7 @@ const SdivButtonOpen = css`
 `;
 
 interface SdivButtonProps {
-  open: boolean,
+  open: boolean;
 }
 
 const SdivButton = styled.div<SdivButtonProps>`
@@ -57,7 +57,7 @@ const SdivButton = styled.div<SdivButtonProps>`
 `;
 
 interface SdivBurgerBarProps {
-  colour: colours,
+  colour: colours;
 }
 
 const SdivBurgerBar = styled.div<SdivBurgerBarProps>`
@@ -70,11 +70,11 @@ const SdivBurgerBar = styled.div<SdivBurgerBarProps>`
 `;
 
 interface HamburgerProps {
-  open: boolean,
-  onClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void,
-  colour: colours,
-  label: string,
-  className?: string,
+  open: boolean;
+  onClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void;
+  colour: colours;
+  label: string;
+  className?: string;
 }
 
 const Hamburger = ({
@@ -84,7 +84,16 @@ const Hamburger = ({
   label,
   className,
 }: HamburgerProps) => (
-  <SdivButton className={className} open={open} onClick={onClick} tabIndex={0} role="button" aria-pressed={open} aria-expanded={open} aria-label={label}>
+  <SdivButton
+    className={className}
+    open={open}
+    onClick={onClick}
+    tabIndex={0}
+    role="button"
+    aria-pressed={open}
+    aria-expanded={open}
+    aria-label={label}
+  >
     <SdivBurgerBar colour={colour} />
     <SdivBurgerBar colour={colour} />
     <SdivBurgerBar colour={colour} />

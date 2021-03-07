@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
-import { media, breakpoints, sizes } from '../helpers/styles';
+import { media, breakpoints, sizes } from "../helpers/styles";
 
-import Wrapper from '../components/Wrapper';
-import Grid from '../components/Grid';
-import Title from '../components/Title';
-import LinkButton from '../components/LinkButton';
-import Heading from '../components/Heading';
+import Wrapper from "../components/Wrapper";
+import Grid from "../components/Grid";
+import Title from "../components/Title";
+import LinkButton from "../components/LinkButton";
+import Heading from "../components/Heading";
 
 const STitleHome = styled(Title)`
   text-align: center;

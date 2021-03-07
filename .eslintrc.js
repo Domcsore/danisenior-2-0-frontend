@@ -9,6 +9,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -38,4 +39,5 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     complexity: 'off',
   },
+
 };

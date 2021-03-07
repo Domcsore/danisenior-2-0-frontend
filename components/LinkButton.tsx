@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import { sizes, colours } from '../helpers/styles';
+import styled from "@emotion/styled";
+import { sizes, colours } from "../helpers/styles";
 
-import Link from './Link';
+import Link from "./Link";
 
 const LinkButton = styled(Link)`
   background: ${colours.white};
@@ -11,7 +11,7 @@ const LinkButton = styled(Link)`
   justify-content: center;
   align-items: center;
   padding: 0 ${sizes.xxl};
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
   font-size: ${sizes.lg};
 `;
 

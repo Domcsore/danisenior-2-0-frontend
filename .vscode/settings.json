@@ -6,5 +6,6 @@
   "codemetrics.basics.EnabledForJSX": false,
   "codemetrics.basics.EnabledForTS": false,
   "codemetrics.basics.EnabledForVue": false,
-  "codemetrics.basics.EnabledForTSX": false
+  "codemetrics.basics.EnabledForTSX": false,
+  "files.eol": "\n"
 }

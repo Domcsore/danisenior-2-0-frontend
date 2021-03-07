@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
-import { sizes, media, breakpoints } from '../helpers/styles';
+import { sizes, media, breakpoints } from "../helpers/styles";
 
 const getAutoString = (count: number): string => {
-  let autoString = '';
+  let autoString = "";
   for (let i = 0; i < count; i += 1) {
-    autoString += 'auto ';
+    autoString += "auto ";
   }
 
   return autoString;
@@ -28,7 +28,7 @@ const SdivGrid = styled.div<SdivGridProps>`
   grid-template-columns: ${({ columns }) => getAutoString(columns)};
   grid-template-rows: ${({ rows }) => (rows ? getAutoString(rows) : null)};
   grid-gap: ${({ gap }) => gap};
-  row-gap: ${({ rowGap }) => (rowGap || null)};
+  row-gap: ${({ rowGap }) => rowGap || null};
 
   ${media(breakpoints.sm)} {
     grid-template-columns: ${({ smColumns }) => getAutoString(smColumns)};
@@ -59,7 +59,7 @@ interface GridProps {
   className?: string;
 }
 
-const Grid:React.FunctionComponent<GridProps> = ({
+const Grid: React.FunctionComponent<GridProps> = ({
   children,
   columns = 1,
   smColumns = columns,

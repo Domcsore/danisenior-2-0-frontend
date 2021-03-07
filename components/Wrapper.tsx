@@ -1,15 +1,10 @@
-import React from 'react';
-import Head from 'next/head';
-import styled from '@emotion/styled';
+import React from "react";
+import Head from "next/head";
+import styled from "@emotion/styled";
 
-import {
-  colours,
-  media,
-  breakpoints,
-  sizes,
-} from '../helpers/styles';
+import { colours, media, breakpoints, sizes } from "../helpers/styles";
 
-import Nav from './Nav';
+import Nav from "./Nav";
 
 interface SWrapperProps {
   navOpen: boolean;
@@ -21,7 +16,7 @@ const SWrapper = styled.div<SWrapperProps>`
   min-height: 100vh;
   min-width: 100vw;
   background-color: ${colours.black};
-  overflow: ${({ navOpen }) => (navOpen ? 'hidden' : 'auto')};
+  overflow: ${({ navOpen }) => (navOpen ? "hidden" : "auto")};
 
   ${media(breakpoints.md)} {
     overflow: auto;
@@ -38,7 +33,7 @@ const Smain = styled.main`
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-  };
+  } ;
 `;
 
 interface HtmlHeadProps {
@@ -48,12 +43,15 @@ interface HtmlHeadProps {
 const HtmlHead = ({ title }: HtmlHeadProps) => (
   <Head>
     <title>{`Dani Senior - ${title}`}</title>
-    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
+    />
     <link rel="stylesheet" href="/core.css" />
   </Head>
 );
 
-const Wrapper:React.FC<HtmlHeadProps> = ({ children, title }) => {
+const Wrapper: React.FC<HtmlHeadProps> = ({ children, title }) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   const onNavToggle = () => {
@@ -64,9 +62,7 @@ const Wrapper:React.FC<HtmlHeadProps> = ({ children, title }) => {
     <SWrapper navOpen={navOpen}>
       <HtmlHead title={title} />
       <Nav onToggle={onNavToggle} open={navOpen} />
-      <Smain>
-        {children}
-      </Smain>
+      <Smain>{children}</Smain>
     </SWrapper>
   );
 };
