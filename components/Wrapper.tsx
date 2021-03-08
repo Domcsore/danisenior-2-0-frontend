@@ -43,10 +43,6 @@ interface HtmlHeadProps {
 const HtmlHead = ({ title }: HtmlHeadProps) => (
   <Head>
     <title>{`Dani Senior - ${title}`}</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
-    />
     <link rel="stylesheet" href="/core.css" />
   </Head>
 );
