@@ -1,6 +1,7 @@
 import React from "react";
+import styled from "@emotion/styled";
 
-import { sizes } from "../helpers/styles";
+import { breakpoints, media, sizes } from "../helpers/styles";
 
 import Wrapper from "../components/Wrapper";
 import Title from "../components/Title";
@@ -11,12 +12,18 @@ import MediaArticle, {
   MediaArticleTypes,
 } from "../components/MediaArticle";
 
+const SGridArticles = styled(Grid)`
+  ${media(breakpoints.md)} {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 const Media = () => {
   const articles: MediaArticleProps[] = [
     {
       type: MediaArticleTypes.Youtube,
       title: "Aylesbury Prison",
-      media: "https://www.youtube.com/embed/KpVQVavHNTw",
+      media: "https://www.youtube-nocookie.com/embed/KpVQVavHNTw",
       text:
         "<p>Gareth Malone’s The Choir: Aylesbury Prison - Dani Senior, Assistant Songwriter</p>",
     },
@@ -50,7 +57,7 @@ const Media = () => {
     <Wrapper title="Media">
       <Grid gap={sizes.xxl}>
         <Title>Media</Title>
-        <Grid mdColumns={2} gap={sizes.xxl}>
+        <SGridArticles gap={sizes.xxl}>
           {articles.map((article) => (
             <MediaArticle
               key={article.title}
@@ -60,7 +67,7 @@ const Media = () => {
               text={article.text}
             />
           ))}
-        </Grid>
+        </SGridArticles>
       </Grid>
     </Wrapper>
   );

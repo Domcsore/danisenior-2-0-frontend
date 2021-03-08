@@ -72,6 +72,7 @@ const SLink = styled(Link)`
 const SdivNavContainer = styled.div`
   position: sticky;
   top: 0;
+  z-index: 9999;
 `;
 
 const SGridSocials = styled(Grid)`

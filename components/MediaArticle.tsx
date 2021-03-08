@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Head from "next/head";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
@@ -67,12 +68,17 @@ export interface MediaArticleProps {
 
 const MediaArticle = ({ type, title, media, text }: MediaArticleProps) => {
   const renderYoutube = () => (
-    <SiframeArticle
-      title={title}
-      src={media}
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
+    <>
+      <Head>
+        <link rel="preload" href={media} as="document" />
+      </Head>
+      <SiframeArticle
+        title={title}
+        src={media}
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </>
   );
 
   const renderVideo = () => (
@@ -115,12 +121,12 @@ const MediaArticle = ({ type, title, media, text }: MediaArticleProps) => {
   };
 
   return (
-    <div>
+    <article>
       <SdivAspectSixteenNine>
         <SdivMediaContainer type={type}>{renderMedia(type)}</SdivMediaContainer>
       </SdivAspectSixteenNine>
       <div dangerouslySetInnerHTML={{ __html: text }} />
-    </div>
+    </article>
   );
 };
 
