@@ -11,9 +11,10 @@ interface SWrapperProps {
 }
 
 const SWrapper = styled.div<SWrapperProps>`
+  display: flex;
+  flex-direction: column;
   position: relative;
-  max-height: 100vh;
-  min-height: 100vh;
+  height: 100vh;
   min-width: 100vw;
   background-color: ${colours.black};
   overflow: ${({ navOpen }) => (navOpen ? "hidden" : "auto")};
@@ -21,15 +22,18 @@ const SWrapper = styled.div<SWrapperProps>`
   ${media(breakpoints.md)} {
     overflow: auto;
     display: flex;
+    flex-direction: row;
   }
 `;
 
 const Smain = styled.main`
+  position: relative;
   padding: ${sizes.xxl} ${sizes.md};
+  flex-grow: 1;
+  flex-basis: 100%;
 
   ${media(breakpoints.md)} {
     padding: ${sizes.xxl};
-    flex-grow: 1;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;

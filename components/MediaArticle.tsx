@@ -125,6 +125,7 @@ const MediaArticle = ({ type, title, media, text }: MediaArticleProps) => {
       <SdivAspectSixteenNine>
         <SdivMediaContainer type={type}>{renderMedia(type)}</SdivMediaContainer>
       </SdivAspectSixteenNine>
+      {/* eslint-disable-next-line react/no-danger */}
       <div dangerouslySetInnerHTML={{ __html: text }} />
     </article>
   );
